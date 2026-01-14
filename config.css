@@ -1,0 +1,19 @@
+html {
+  filter: grayscale(100%);
+}
+
+* {
+	 font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+img, video, picture {
+  border: 2px dashed #999;
+  object-position: -9999px;
+  background-color: #f8f8f8;
+}
+
+img:hover, video:hover, picture:hover {
+  object-position: center;
+  border-style: solid;
+  border-color: #333;
+}
