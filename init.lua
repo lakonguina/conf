@@ -1,18 +1,15 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
-		-- Récupère tous les groupes de highlight
+		-- Get all groups
 		local highlights = vim.fn.getcompletion("", "highlight")
 
 		for _, hl in ipairs(highlights) do
-			-- Garde uniquement les groupes liés aux commentaires
-			if not hl:match("Comment") and not hl:match("comment") then
+			-- Keep comment and visual bloc
+			if not hl:lower():match("comment") and hl ~= "Visual" and hl ~= "VisualNOS" then
 				vim.api.nvim_set_hl(0, hl, { link = "Normal" })
 			end
 		end
-
-		-- Définit la couleur des commentaires
-		vim.api.nvim_set_hl(0, "Comment", { fg = "#5faf5f", italic = true })
 	end,
 })
 
